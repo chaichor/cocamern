@@ -7,7 +7,8 @@ import { config } from "./src/config.js";
 async function main(){
 
     app.listen(config.server.port);
-    console.log("server on port" + config.server.port)
+    console.log("server en el puerto " + config.server.port)
+    console.log("Buen Dia ")
 }
 //ejecutamos todo 
 main();

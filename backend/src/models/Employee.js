@@ -27,7 +27,7 @@ const employeeSchema = new Schema({
     maxLength: 50,
   },
   birthday: {
-    type: String, // Puedes usar Date o String
+    type: String, // Puede usar Date o String
   },
   email: {
     type: String,
@@ -40,7 +40,7 @@ const employeeSchema = new Schema({
     type: String,
   },
   hireDate: {
-    type: String, // Puedes usar Date o String
+    type: String, // Puede usar Date o String
   },
   password: {
     type: String,
