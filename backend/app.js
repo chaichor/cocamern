@@ -9,6 +9,7 @@ import reviewsRoutes from "./src/routes/reviews.js"
 import assessmentRoutes from "./src/routes/assessment.js"
 import registerEmployeesRoutes from "./src/routes/registerEmployees.js"
 import loginRoute from "./src/routes/login.js"
+import logoutRoute from "./src/routes/logout.js"
 import cookieParser from "cookie-parser";
 
 //crear const que es igual a la libreria que importe y la ejecuta
@@ -32,6 +33,8 @@ app.use("/api/assessment", assessmentRoutes);
 app.use("/api/registerEmployees", registerEmployeesRoutes);
 //login
 app.use("/api/login", loginRoute);
+//logout
+app.use("/api/logout", logoutRoute)
 
 
 
