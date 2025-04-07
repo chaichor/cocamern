@@ -102,7 +102,7 @@ registerClientsController.register = async(req, res) => {
 
 //verificar el codigo
 registerClientsController.verifyCodeEmail = async (req, res) => {
-    const {} = req.body;
+    const {verificationCode} = req.body;
 
     //obtengo el token de mi codigo de verificacion
     const token = req.cookies.VerificationToken;
@@ -115,6 +115,10 @@ registerClientsController.verifyCodeEmail = async (req, res) => {
         if(verificationCode !== storedCode){
             return res.json({message: "Invalid Code"})
         }
+
+        const client = await clientsModel.findOne({email})
+        client.isVerified = true
+        await client.save()
 
         //Quito la cookie con el token 
         res.clearCookie("VerificationToken");
