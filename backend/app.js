@@ -8,6 +8,7 @@ import categoriesRoutes from "./src/routes/categories.js"
 import reviewsRoutes from "./src/routes/reviews.js"
 import assessmentRoutes from "./src/routes/assessment.js"
 import registerEmployeesRoutes from "./src/routes/registerEmployees.js"
+import registerClientsRoute from "./src/routes/registerClientes.js"
 import loginRoute from "./src/routes/login.js"
 import logoutRoute from "./src/routes/logout.js"
 import cookieParser from "cookie-parser";
@@ -36,6 +37,8 @@ app.use("/api/login", loginRoute);
 //logout
 app.use("/api/logout", logoutRoute)
 
+//register cliente tio
+app.use("/api/registerClients", registerClientsRoute)
 
 
 

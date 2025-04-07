@@ -62,7 +62,7 @@ const clientSchema = new Schema({
   },
 }, {
   timestamps: true,
-  strict: true,
+  strict: false,
 });
 
 export default model("client", clientSchema);
