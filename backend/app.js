@@ -39,6 +39,8 @@ app.use("/api/logout", logoutRoute)
 
 //register cliente tio
 app.use("/api/registerClients", registerClientsRoute)
+app.use("/api/passwordRecovery", registerClientsRoute)
+
 
 
 
