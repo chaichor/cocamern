@@ -12,6 +12,7 @@ import registerClientsRoute from "./src/routes/registerClientes.js"
 import loginRoute from "./src/routes/login.js"
 import logoutRoute from "./src/routes/logout.js"
 import cookieParser from "cookie-parser";
+import passwordRecoveryRoutes from "./src/routes/passwordRecovery.js"; 
 
 //crear const que es igual a la libreria que importe y la ejecuta
 const app = express();
@@ -39,7 +40,7 @@ app.use("/api/logout", logoutRoute)
 
 //register cliente tio
 app.use("/api/registerClients", registerClientsRoute)
-app.use("/api/passwordRecovery", registerClientsRoute)
+app.use("/api/passwordRecovery", passwordRecoveryRoutes)
 
 
 
