@@ -13,6 +13,7 @@ import loginRoute from "./src/routes/login.js"
 import logoutRoute from "./src/routes/logout.js"
 import cookieParser from "cookie-parser";
 import passwordRecoveryRoutes from "./src/routes/passwordRecovery.js"; 
+import blogRoutes from "./src/routes/blog.js"
 
 //crear const que es igual a la libreria que importe y la ejecuta
 const app = express();
@@ -41,6 +42,9 @@ app.use("/api/logout", logoutRoute)
 //register cliente tio
 app.use("/api/registerClients", registerClientsRoute)
 app.use("/api/passwordRecovery", passwordRecoveryRoutes)
+
+//cloudinary
+app.use("/api/blog", blogRoutes)
 
 
 
