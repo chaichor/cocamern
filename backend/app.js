@@ -14,6 +14,7 @@ import logoutRoute from "./src/routes/logout.js"
 import cookieParser from "cookie-parser";
 import passwordRecoveryRoutes from "./src/routes/passwordRecovery.js"; 
 import blogRoutes from "./src/routes/blog.js"
+import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
 
 //crear const que es igual a la libreria que importe y la ejecuta
 const app = express();
@@ -26,7 +27,7 @@ app.use(cookieParser());
 //definir la ruta ENDPOINT
 app.use("/api/products", productRoutes);
 app.use("/api/client", clientRoutes);
-app.use("/api/employee", employeeRoutes);
+app.use("/api/employee", validateAuthToken(["employee", "Admin"]), employeeRoutes);
 app.use("/api/branches", branchesRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/reviews", reviewsRoutes);
