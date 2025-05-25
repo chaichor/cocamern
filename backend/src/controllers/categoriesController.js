@@ -13,11 +13,12 @@ categoriesController.getCategories = async (req, res) => {
 
 categoriesController.insertCategories = async (req, res) => {
 
-    const {name, description, status, image} = req.body;
-    const newCategories = new categoriesModel({name, 
+    const {name, description, status} = req.body;
+    const newCategories = new categoriesModel({
+        name, 
         description, 
-        status, 
-        image});
+        status
+    });
     await newCategories.save();
     res.json({message: "Categories saved"});
 
@@ -33,9 +34,9 @@ categoriesController.deleteCategories = async (req, res) => {
 // ------------------- UPDATE ------------------------
 
 categoriesController.updateCategories = async (req, res) => {
-    const {name, description, status, image} = req.body;
+    const {name, description, status} = req.body;
     const updatedCategories = await categoriesModel.findByIdAndUpdate(req.params.id, 
-        {name, description, status, image}, {new: true});
+        {name, description, status}, {new: true});
         res.json({message: "Categories updated"});
 };
 

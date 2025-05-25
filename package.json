@@ -1,0 +1,26 @@
+{
+  "name": "cocamern",
+  "version": "1.0.0",
+  "description": "Aplicación MERN para gestión de empleados, productos y sucursales",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && npm run dev"
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "node",
+    "mongodb",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cocamern": "file:",
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.1.10"
+  }
+}

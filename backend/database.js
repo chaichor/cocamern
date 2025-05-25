@@ -4,11 +4,11 @@ import mongoose from "mongoose";
 import { config } from "./src/config.js";
 //guardo en una const la direccion de mi base de datos
 
-const URI = ""
+const URI = config.db.URI;
 
 //conectar db
 
-mongoose.connect(config.db.URI)
+mongoose.connect(URI)
 
 //---------------validacion de que la base sirve-------------------------
 

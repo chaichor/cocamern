@@ -1,5 +1,6 @@
 //importo todo lo de la libreria
 import express from "express";
+import cors from "cors";
 import productRoutes from "./src/routes/products.js"
 import clientRoutes from "./src/routes/client.js"
 import employeeRoutes from "./src/routes/employee.js"
@@ -18,6 +19,14 @@ import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
 
 //crear const que es igual a la libreria que importe y la ejecuta
 const app = express();
+
+// Configuración de CORS para permitir peticiones desde el frontend
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:5174', 'http://127.0.0.1:5173', 'http://127.0.0.1:5174'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 //uso middleware para que acepte datos json
 app.use(express.json());

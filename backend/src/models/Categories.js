@@ -21,10 +21,6 @@ const categoriesSchema = new Schema({
     type: Boolean,
     required: true,
   },
-  image: {
-    type: String, 
-    required: true,
-  },
 }, {
   timestamps: true,
   strict: true,
