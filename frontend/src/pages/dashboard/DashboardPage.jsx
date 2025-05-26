@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Tag, Package, Building2 } from 'lucide-react';
+import { Tag, Package, Building2, CarFront } from 'lucide-react';
 import axios from 'axios';
 
 const DashboardPage = () => {
   const [stats, setStats] = useState({
     categories: 0,
     products: 0,
-    branches: 0
+    branches: 0,
+    transport:0
   });
   const [loading, setLoading] = useState(true);
 
@@ -22,16 +23,20 @@ const DashboardPage = () => {
           }
         };
 
-        const [categoriesRes, productsRes, branchesRes] = await Promise.all([
+        const [categoriesRes, productsRes, branchesRes, transportRes] = await Promise.all([
           axios.get('http://localhost:4000/api/categories', config),
           axios.get('http://localhost:4000/api/products', config),
-          axios.get('http://localhost:4000/api/branches', config)
+          axios.get('http://localhost:4000/api/branches', config),
+          axios.get('http://localhost:4000/api/transport', config)
+
         ]);
 
         setStats({
           categories: categoriesRes.data.length,
           products: productsRes.data.length,
-          branches: branchesRes.data.length
+          branches: branchesRes.data.length,
+          transport: transportRes.data.length
+
         });
       } catch (error) {
         console.error('Error fetching stats:', error);
@@ -96,6 +101,21 @@ const DashboardPage = () => {
                 <p className="text-3xl font-bold text-gray-800">{stats.branches}</p>
                 <Link to="/branches" className="text-purple-600 hover:underline text-sm">
                   Ver todas →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500 hover:shadow-lg transition-shadow">
+            <div className="flex items-center">
+              <div className="bg-purple-100 p-3 rounded-full">
+                <CarFront className="h-6 w-6 text-purple-600" />
+              </div>
+              <div className="ml-4">
+                <h2 className="text-lg font-semibold text-gray-700">Transporte</h2>
+                <p className="text-3xl font-bold text-gray-800">{stats.transport}</p>
+                <Link to="/transport" className="text-purple-600 hover:underline text-sm">
+                  Ver todos →
                 </Link>
               </div>
             </div>

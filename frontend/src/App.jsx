@@ -4,6 +4,8 @@ import DashboardPage from './pages/dashboard/DashboardPage';
 import ProductsPage from './pages/products/ProductsPage';
 import BranchesPage from './pages/branches/BranchesPage';
 import CategoriesPage from './pages/categories/CategoriesPage';
+import TransportPage from './pages/transport/TransportPage';
+import BlogPage from './pages/blog/BlogPage';
 import './App.css';
 
 function App() {
@@ -16,6 +18,10 @@ function App() {
           <Route path="products" element={<ProductsPage />} />
           <Route path="branches" element={<BranchesPage />} />
           <Route path="categories" element={<CategoriesPage />} />
+          <Route path="transport" element={<TransportPage />} />
+          <Route path="blog" element={<BlogPage />} />
+
+
         </Route>
       </Routes>
     </BrowserRouter>

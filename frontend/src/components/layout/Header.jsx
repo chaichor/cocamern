@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Package, Building2, Tag, Menu, X } from 'lucide-react';
+import { Home, Package, Building2, Tag, Menu, X, CarFront, ScrollText } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,6 +51,18 @@ const Header = () => {
               <Link to="/categories" className="flex items-center">
                 <Tag className="mr-1 h-4 w-4" />
                 Categorías
+              </Link>
+            </li>
+            <li className="text-black hover:text-blue-600 transition-colors py-2 md:py-0">
+              <Link to="/transport" className="flex items-center">
+                <CarFront className="mr-1 h-6 w-6" />
+                Transporte
+              </Link>
+            </li>
+            <li className="text-black hover:text-blue-600 transition-colors py-2 md:py-0">
+              <Link to="/blog" className="flex items-center">
+                <ScrollText className="mr-1 h-6 w-6" />
+                Blogs
               </Link>
             </li>
           </ul>

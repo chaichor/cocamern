@@ -15,7 +15,9 @@ import logoutRoute from "./src/routes/logout.js"
 import cookieParser from "cookie-parser";
 import passwordRecoveryRoutes from "./src/routes/passwordRecovery.js"; 
 import blogRoutes from "./src/routes/blog.js"
+import transportRoutes from "./src/routes/transport.js"
 import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
+
 
 //crear const que es igual a la libreria que importe y la ejecuta
 const app = express();
@@ -41,6 +43,7 @@ app.use("/api/branches", branchesRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/reviews", reviewsRoutes);
 app.use("/api/assessment", assessmentRoutes);
+app.use("/api/transport", transportRoutes);
 
 //register employee
 app.use("/api/registerEmployees", registerEmployeesRoutes);
