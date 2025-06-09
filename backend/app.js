@@ -17,6 +17,12 @@ import passwordRecoveryRoutes from "./src/routes/passwordRecovery.js";
 import blogRoutes from "./src/routes/blog.js"
 import transportRoutes from "./src/routes/transport.js"
 import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
+import swaggerUi from "swagger-ui-express"
+
+import fs from "fs"
+import path from "path";
+
+
 
 
 //crear const que es igual a la libreria que importe y la ejecuta
@@ -34,6 +40,15 @@ app.use(cors({
 app.use(express.json());
 //que acepte las cookies
 app.use(cookieParser());
+
+
+//utilizar el sistema de archivos, para leer el json de swaggerUI y ver la documentacion
+
+const swaggerDocument = JSON.parse(fs.readFileSync(
+   path.resolve("./swagg.json"), "utf-8")
+)
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 //definir la ruta ENDPOINT
 app.use("/api/products", productRoutes);
